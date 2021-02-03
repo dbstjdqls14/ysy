@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">ysy</string>
+    <string name="email_text_hint">
+        <font size="14">이메일을 입력해주세요.</font>
+    </string>
+    <string name="pw_text_hint">
+        <font size="14">6~15자 이내 대문자, 특수문자를 포함하여 조합허세요.</font>
+    </string>
 </resources>

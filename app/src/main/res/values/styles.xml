@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="EditTextStyle">
+        <item name="backgroundTint">@color/text_control</item>
+        <item name="colorControlNormal">@color/text_control</item>
+        <item name="colorControlActivated">@color/public_color</item>
+    </style>
+</resources>
