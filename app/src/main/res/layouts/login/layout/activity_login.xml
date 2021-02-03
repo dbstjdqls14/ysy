@@ -6,118 +6,125 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".login.LoginActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <include layout="@layout/popup_header"
+        android:id="@+id/header"
         app:layout_constraintTop_toTopOf="parent"
-        android:orientation="vertical">
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/login_container"/>
 
-        <include layout="@layout/popup_header" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/login_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/header"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/login_info_box"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/underline"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent="0.92">
 
             <LinearLayout
+                android:id="@+id/email_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginTop="35dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp">
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/password_container">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_marginLeft="3dp"
+                    android:fontFamily="@font/notosans_medium"
+                    android:includeFontPadding="false"
+                    android:text="이메일"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="3dp"
-                        android:text="이메일"
-                        android:fontFamily="@font/notosans_medium"
-                        android:includeFontPadding="false"
-                        android:textColor="@color/black"
-                        android:textSize="16dp" />
-
-                    <EditText
-                        android:id="@+id/email_input"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:privateImeOptions="defaultInputmode=english"
-                        android:inputType="textEmailAddress"
-                        android:hint="@string/email_text_hint"
-                        android:textSize="14dp"
-                        android:fontFamily="@font/notosans_regular"
-                        android:includeFontPadding="false"
-                        android:theme="@style/EditTextStyle" />
-                </LinearLayout>
+                <EditText
+                    android:id="@+id/email_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:fontFamily="@font/notosans_regular"
+                    android:hint="@string/email_text_hint"
+                    android:includeFontPadding="false"
+                    android:inputType="textEmailAddress"
+                    android:privateImeOptions="defaultInputmode=english"
+                    android:textSize="14dp"
+                    android:theme="@style/EditTextStyle" />
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/password_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_marginTop="25dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp">
+                app:layout_constraintTop_toBottomOf="@id/email_container"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/login_btn">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_marginLeft="3dp"
+                    android:text="비밀번호"
+                    android:fontFamily="@font/notosans_medium"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="3dp"
-                        android:text="비밀번호"
-                        android:fontFamily="@font/notosans_medium"
-                        android:includeFontPadding="false"
-                        android:textColor="@color/black"
-                        android:textSize="16dp" />
-
-                    <EditText
-                        android:id="@+id/pw_input"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:privateImeOptions="defaultInputmode=english"
-                        android:inputType="textPassword"
-                        android:hint="@string/pw_text_hint"
-                        android:textSize="14dp"
-                        android:fontFamily="@font/notosans_regular"
-                        android:includeFontPadding="false"
-                        android:theme="@style/EditTextStyle" />
-                </LinearLayout>
+                <EditText
+                    android:id="@+id/pw_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:privateImeOptions="defaultInputmode=english"
+                    android:inputType="textPassword"
+                    android:hint="@string/pw_text_hint"
+                    android:textSize="14dp"
+                    android:fontFamily="@font/notosans_regular"
+                    android:includeFontPadding="false"
+                    android:theme="@style/EditTextStyle" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/login_btn"
-                android:orientation="vertical"
-                android:layout_width="370dp"
+                android:layout_width="0dp"
                 android:layout_height="45dp"
-                android:gravity="center"
-                android:layout_gravity="center"
                 android:background="@drawable/login_btn"
+                android:gravity="center"
+                android:orientation="vertical"
                 android:layout_marginTop="30dp"
-                android:weightSum="10">
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/password_container">
 
-                <LinearLayout
-                    android:layout_weight="8"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="로그인"
-                        android:textSize="18dp"
-                        android:textColor="@color/white"
-                        android:fontFamily="@font/notosans_bold"
-                        android:includeFontPadding="false"/>
-                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="로그인"
+                    android:textSize="18dp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/notosans_bold"
+                    android:includeFontPadding="false"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    />
             </LinearLayout>
 
             <LinearLayout
@@ -125,7 +132,10 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="15dp"
-                android:gravity="center">
+                android:gravity="center"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/login_btn">
 
                 <TextView
                     android:id="@+id/find_id"
@@ -178,65 +188,73 @@
                     android:includeFontPadding="false"/>
 
             </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
+        <LinearLayout
+            android:id="@+id/underline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="40dp"
+            app:layout_constraintTop_toBottomOf="@id/login_info_box"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <View
+                android:background="@color/line_color"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="2dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp">
+                android:text="OR"
+                android:fontFamily="@font/notosans_medium"
+                android:includeFontPadding="false"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"/>
 
-                <View
-                    android:background="@color/line_color"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="2dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="OR"
-                    android:fontFamily="@font/notosans_medium"
-                    android:includeFontPadding="false"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"/>
-
-                <View
-                    android:background="@color/line_color"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="2dp"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/kakao_login"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/kakao_login" />
-
-                <ImageView
-                    android:id="@+id/facebook_login"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/facebook_login"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"/>
-
-                <ImageView
-                    android:id="@+id/naver_login"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/naver_login" />
-
-            </LinearLayout>
-
+            <View
+                android:background="@color/line_color"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="2dp"/>
         </LinearLayout>
-    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="30dp"
+            app:layout_constraintTop_toBottomOf="@id/underline"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <ImageView
+                android:id="@+id/kakao_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/kakao_login" />
+
+            <ImageView
+                android:id="@+id/facebook_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/facebook_login"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"/>
+
+            <ImageView
+                android:id="@+id/naver_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/naver_login" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
