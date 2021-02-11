@@ -11,4 +11,6 @@
     <color name="line_color">#D4D4D4</color>
     <color name="text_control">#9F9F9F</color>
     <color name="public_color">#FF6D70</color>
+    <color name="error">#FD2429</color>
+    <color name="transparent">#00000000</color>
 </resources>
